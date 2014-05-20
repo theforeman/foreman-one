@@ -1,8 +1,20 @@
+GIT
+  remote: https://github.com/netways/fog.git
+  revision: 307106800e8572f40ccde35f9f2438e684ce337d
+  branch: net-v1.21.0
+  specs:
+    fog (1.21.0)
+      fog-brightbox
+      fog-core (~> 1.21, >= 1.21.1)
+      fog-json
+      nokogiri (~> 1.5, >= 1.5.11)
+      opennebula (= 4.4.0)
+
 PATH
   remote: .
   specs:
     foreman_one (0.1)
-      fog
+      fog (~> 1.21.0)
       opennebula
 
 GEM
@@ -10,11 +22,6 @@ GEM
   specs:
     builder (3.2.2)
     excon (0.33.0)
-    fog (1.22.0)
-      fog-brightbox
-      fog-core (~> 1.21, >= 1.21.1)
-      fog-json
-      nokogiri (~> 1.5, >= 1.5.11)
     fog-brightbox (0.0.2)
       fog-core
       fog-json
@@ -31,13 +38,13 @@ GEM
     json (1.8.1)
     mime-types (2.2)
     mini_portile (0.6.0)
-    multi_json (1.10.0)
+    multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
-    opennebula (4.6.0)
+    opennebula (4.4.0)
       json
       nokogiri
     rake (10.3.2)
@@ -46,5 +53,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fog!
   foreman_one!
   rake
