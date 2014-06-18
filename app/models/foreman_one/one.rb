@@ -63,16 +63,16 @@ module ForemanOne
 
       vm.flavor.vcpu = args[:vcpu] unless args[:vcpu].empty?
       vm.flavor.memory = args[:memory] unless args[:memory].empty?
-      vm.flavor.nic = []
+      vm.flavor.nic = [] unless vm.flavor.nic.is_a? Array
 
       #INTERFACES {"new_interfaces"=>{"vnetid"=>"0", "_delete"=>"", "model"=>"virtio"}, "new_1398239695352"=>{"vnetid"=>"2", "_delete"=>"", "model"=>"virtio"}, "new_1398239700415"=>{"vnetid"=>"2", "_delete"=>"", "model"=>"virtio"}, "new_1398239705632"=>{"vnetid"=>"0", "_delete"=>"", "model"=>"e1000"}}
       logger.info "INTERFACES #{args[:vminterfaces_attributes].inspect}"
       nics = args[:vminterfaces_attributes].values
       if nics.is_a? Array then
         nics.each do |nic|
-	  unless (nic["vnetid"].empty? || nic["model"].empty?)
-	    vm.flavor.nic << client.interfaces.new({ :vnet => client.networks.get(nic["vnetid"]), :model => nic["model"]})
-	  end
+          unless (nic["vnetid"].empty? || nic["model"].empty?)
+            vm.flavor.nic << client.interfaces.new({ :vnet => client.networks.get(nic["vnetid"]), :model => nic["model"]})
+          end
         end
       end
 
