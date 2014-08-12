@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,locale}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "fog", "~> 1.21.0"
-  s.add_dependency "opennebula"
+  s.add_dependency "fog", ">= 1.23.0"
+  s.add_dependency "opennebula", ">= 4.4.0"
 
 end
