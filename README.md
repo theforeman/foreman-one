@@ -20,7 +20,7 @@ The gem name is "foreman_one".
 
 You can get the develop branch of the plugin by specifying your Gemfile in this way:
 
-    gem 'foreman_one', :git => "https://github.com/netways/foreman-one.git"
+    gem 'foreman_one', :git => "https://github.com/theforeman/foreman-one.git"
 
 # Copyright
 
