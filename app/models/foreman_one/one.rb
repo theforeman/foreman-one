@@ -41,7 +41,7 @@ module ForemanOne
     def networks
       client.networks rescue []
     end
- 
+
 
     def flavors
       client.flavors
@@ -135,12 +135,12 @@ module ForemanOne
       @client ||= ::Fog::Compute.new({:provider => 'OpenNebula', :opennebula_username => user, :opennebula_password => password, :opennebula_endpoint => url})
     end
 
-
     def vm_instance_defaults
-      super.merge(
-        :b0e => "foob0e",
-        :foob0e  => "b0e"
-      )
+      #super.merge(
+      #  :b0e => "foob0e",
+      #  :foob0e  => "b0e"
+      #)
+      {}
     end
 
   end
