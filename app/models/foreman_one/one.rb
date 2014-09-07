@@ -136,12 +136,7 @@ module ForemanOne
     end
 
     def vm_instance_defaults
-      #super.merge(
-      #  :b0e => "foob0e",
-      #  :foob0e  => "b0e"
-      #)
-      {}
+      super
     end
-
   end
 end
