@@ -5,7 +5,7 @@ module ForemanOne
     validates :user, :password, :presence => true
     validates :url, :format => { :with => URI.regexp }
 
-    def provider_friendly_name
+    def self.provider_friendly_name
       "OpenNebula"
     end
 
