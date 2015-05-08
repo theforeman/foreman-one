@@ -15,6 +15,7 @@ The gem name is "foreman_one".
 | Foreman Version | Plugin Version |
 | ---------------:| --------------:|
 | >=  1.5         | 0.1            |
+| >=  1.8         | 0.3            |
 
 ## Latest code
 

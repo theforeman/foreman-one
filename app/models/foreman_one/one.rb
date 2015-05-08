@@ -10,7 +10,7 @@ module ForemanOne
     end
 
     def provided_attributes
-      super.merge({ :mac => :vm_mac_address })
+      super.merge({ :mac => :mac })
     end
 
     def self.model_name
@@ -30,12 +30,11 @@ module ForemanOne
     end
 
     def interfaces
-      #client.interfaces rescue []
-      []
+      vm.interfaces
     end
+
     def vminterfaces
-      #client.interfaces rescue []
-      []
+      interfaces
     end
 
     def networks
@@ -66,8 +65,8 @@ module ForemanOne
       vm.flavor.nic = [] unless vm.flavor.nic.is_a? Array
 
       #INTERFACES {"new_interfaces"=>{"vnetid"=>"0", "_delete"=>"", "model"=>"virtio"}, "new_1398239695352"=>{"vnetid"=>"2", "_delete"=>"", "model"=>"virtio"}, "new_1398239700415"=>{"vnetid"=>"2", "_delete"=>"", "model"=>"virtio"}, "new_1398239705632"=>{"vnetid"=>"0", "_delete"=>"", "model"=>"e1000"}}
-      logger.info "INTERFACES #{args[:vminterfaces_attributes].inspect}"
-      nics = args[:vminterfaces_attributes].values
+      logger.debug "NEW #{args[:interfaces_attributes].inspect}"
+      nics = args[:interfaces_attributes].values
       if nics.is_a? Array then
         nics.each do |nic|
           unless (nic["vnetid"].empty? || nic["model"].empty?)
@@ -76,10 +75,11 @@ module ForemanOne
         end
       end
 
-      logger.info "VM: #{vm.inspect}"
-      logger.info "FLAVOR: #{vm.flavor.inspect}"
-      logger.info "NIC: #{vm.flavor.nic.inspect}"
-      logger.info "FLAVORtos: #{vm.flavor.to_s}"
+      logger.debug "VM: #{vm.inspect}"
+      logger.debug "FLAVOR: #{vm.flavor.inspect}"
+      logger.debug "NIC: #{vm.flavor.nic.inspect}"
+      logger.debug "FLAVORto_s: #{vm.flavor.to_s}"
+
       vm.save
     rescue ::OpenNebula::Error => e
       logger.debug "OpenNebula error: #{e.message}\n " + e.backtrace.join("\n ")
