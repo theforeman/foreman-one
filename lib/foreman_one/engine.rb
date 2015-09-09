@@ -22,5 +22,18 @@ module ForemanOne
       end
     end
 
+    config.to_prepare do
+      begin
+        # extend fog opennebula server/
+        require 'fog/opennebula/models/compute/server'
+        require File.expand_path('../../../app/models/concerns/fog_extensions/opennebula/server', __FILE__)
+
+        Fog::Compute::OpenNebula::Server.send(:include, ::FogExtensions::OpenNebula::Server)
+        ::HostsHelper.send(:include, ForemanOne::HostHelperExtensions)
+      rescue => e
+        puts "Foreman-One: skipping engine hook (#{e.to_s})"
+      end
+    end
+
   end
 end
