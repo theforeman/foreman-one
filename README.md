@@ -17,11 +17,13 @@ The gem name is "foreman_one".
 | >=  1.5         | 0.1            |
 | >=  1.8         | 0.3            |
 
-## Latest code
+## Latest code (recommended)
 
-You can get the develop branch of the plugin by specifying your Gemfile in this way:
+To use foreman-one with newer Versions of TheForeman >=1.8 you should add the
+following lines to your Gemfile. 
 
     gem 'foreman_one', :git => "https://github.com/theforeman/foreman-one.git"
+    gem "fog", :git => "https://github.com/netways/fog.git", :branch => "net-v1.33.0"
 
 # Copyright
 
