@@ -1,6 +1,6 @@
 require 'fast_gettext'
 require 'gettext_i18n_rails'
-require 'fog'
+require 'fog/opennebula'
 
 module ForemanOne
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.
