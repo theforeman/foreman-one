@@ -10,7 +10,7 @@ module ForemanOne
     end
 
     def provided_attributes
-      super.merge({ :mac => :mac })
+      super.merge({ :uuid => :identity_to_s, :mac => :mac })
     end
 
     def self.model_name

@@ -18,6 +18,10 @@ module FogExtensions
       def template_id
         ""
       end
+
+      def identity_to_s
+        identity.to_s
+      end
     end
   end
 end
