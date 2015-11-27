@@ -3,6 +3,8 @@ module FogExtensions
     module Server
       extend ActiveSupport::Concern
 
+      include ActionView::Helpers::NumberHelper
+
       def vminterfaces
         interfaces
       end
@@ -17,6 +19,10 @@ module FogExtensions
 
       def template_id
         ""
+      end
+
+      def vm_description
+        _("%{cpus} CPUs and %{memory} memory") % {:cpus => cpu, :memory => number_to_human_size(memory.to_i)}
       end
     end
   end
