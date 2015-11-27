@@ -115,13 +115,8 @@ module ForemanOne
       false
     end
 
-#    def associated_host(vm)
-#      Host.my_hosts.where(:ip => [vm.public_ip_address, vm.private_ip_address]).first
-#    end
-
     def associated_host(vm)
-      #Host.my_hosts.where(:mac => [vm.vm_mac_address]).first
-      Host.authorized(:view_hosts, Host).where(:mac => vm.vm_mac_address).first
+      associate_by("mac", vm.vm_mac_address)
     end
 
     def new_vminterface attr={}
