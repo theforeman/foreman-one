@@ -16,7 +16,7 @@ module ForemanOne
 
     initializer 'foreman_one.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_one do
-        requires_foreman '> 1.4'
+        requires_foreman '>= 1.8'
         # Register OpenNebula compute resource in foreman
         compute_resource ForemanOne::One
       end
