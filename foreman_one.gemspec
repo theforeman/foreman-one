@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ForemanOne::VERSION
   s.authors     = ["NETWAYS Managed Services GmbH"]
   s.email       = ["support@netways.de"]
-  s.homepage    = "http://github.com/netways/foreman-one"
+  s.homepage    = "https://github.com/theforeman/foreman-one"
   s.summary     = "Provision and manage OpenNebula VMs from Foreman"
   s.description = "Provision and manage OpenNebula VMs from Foreman"
   s.licenses    = ["GPL-3"]
