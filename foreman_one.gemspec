@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/theforeman/foreman-one"
   s.summary     = "Provision and manage OpenNebula VMs from Foreman"
   s.description = "Provision and manage OpenNebula VMs from Foreman"
-  s.licenses    = ["GPL-3"]
+  s.licenses    = ["GPL-3.0"]
 
   s.add_development_dependency('rake')
 
