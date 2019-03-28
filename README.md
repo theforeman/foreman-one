@@ -1,5 +1,15 @@
 # Foreman OpenNebula Plugin
 
+**This plugin has been discontinued. The latest release only helps with its removal. If you're interested in taking over the maintanance, let us know. See https://community.theforeman.org/t/foreman-opennebula-plugin-sunsetting/13436 for more details**
+
+In order to remove the plugin from your Foreman installation, following steps need to be taken
+
+1. make a backup
+1. remove all Open Nebula compute resources you defined
+1. uninstall the plugin by running `yum remove tfm-rubygem-foreman_one` or `apt remove ruby-foreman-one`
+
+## Description
+
 This plugin enables provisioning and managing OpenNebula VMs in Foreman.
 
 ## Installation
